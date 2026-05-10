@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+        <!--  ==================== TITLE ====================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:text="Progress Bar Demo"
+            android:textColor="#3F51B5"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+        <!--  ================================================  -->
+        <!--  SECTION 1: Horizontal Determinate ProgressBar     -->
+        <!--  Shows exact progress with a value (0–100)         -->
+        <!--  ================================================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="1. Horizontal ProgressBar (Determinate)"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <!--  Horizontal style ProgressBar — shows % filled bar  -->
+        <ProgressBar
+            android:id="@+id/progressBarHorizontal"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:max="100"
+            android:progress="0" />
+        <!--  Percentage label  -->
+        <TextView
+            android:id="@+id/tvProgressPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Progress: 0%"
+            android:textColor="#555555"
+            android:textSize="14sp" />
+        <!--  Buttons to control horizontal progress bar  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#3F51B5"
+                android:text="START"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:text="RESET"
+                android:textColor="#3F51B5" />
+        </LinearLayout>
+        <!--  ================================================  -->
+        <!--  SECTION 2: Circular Indeterminate ProgressBar     -->
+        <!--  Spins continuously — used for unknown durations   -->
+        <!--  ================================================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="2. Circular ProgressBar (Indeterminate)"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <!--  Circular spinner — indeterminate means no fixed end value  -->
+        <ProgressBar
+            android:id="@+id/progressBarCircular"
+            style="@android:style/Widget.ProgressBar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"
+            android:indeterminate="true"
+            android:visibility="gone" />
+        <!--  Status text for circular bar  -->
+        <TextView
+            android:id="@+id/tvCircularStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="Status: Idle"
+            android:textColor="#555555"
+            android:textSize="14sp" />
+        <!--  Show / Hide circular spinner buttons  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnShowCircular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#009688"
+                android:text="SHOW"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnHideCircular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F44336"
+                android:text="HIDE"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+        <!--  ================================================  -->
+        <!--  SECTION 3: Manual Step-by-Step ProgressBar        -->
+        <!--  Increment / Decrement with buttons                -->
+        <!--  ================================================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="3. Manual Step ProgressBar (+10 / -10)"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBarManual"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/tvManualPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="Manual Progress: 0 / 100"
+            android:textColor="#555555"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnIncrement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="+ 10"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnDecrement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5722"
+                android:text="- 10"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+        <!--  ==================== STATUS OUTPUT ====================  -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="#CCCCCC" />
+
+        <TextView
+            android:id="@+id/tvStatusOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Status: Waiting to start..."
+            android:textColor="#3F51B5"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
