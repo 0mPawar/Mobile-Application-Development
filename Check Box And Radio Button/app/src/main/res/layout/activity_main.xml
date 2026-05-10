@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+        <!--  ==================== TITLE ====================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:text="Student Preference Form"
+            android:textColor="#3F51B5"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+        <!--  ==================== SECTION 1: CheckBox ====================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="1. Select Your Hobbies (CheckBox)"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <!--  Each CheckBox is independent — multiple selections allowed  -->
+        <CheckBox
+            android:id="@+id/cbReading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Reading"
+            android:textColor="#444444"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/cbCoding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Coding"
+            android:textColor="#444444"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/cbTravelling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Travelling"
+            android:textColor="#444444"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/cbGaming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Gaming"
+            android:textColor="#444444"
+            android:textSize="15sp" />
+        <!--  ==================== SECTION 2: RadioButton ====================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="2. Select Your Gender (RadioButton)"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <!--  RadioGroup ensures only ONE RadioButton can be selected at a time  -->
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Male"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Female"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+        </RadioGroup>
+        <!--  ==================== SECTION 3: Course RadioGroup ====================  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="3. Select Your Course (RadioButton)"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbCM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Computer Engineering"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbIT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Information Technology"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbETC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Electronics &amp; Telecom"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+        </RadioGroup>
+        <!--  Submit Button  -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#3F51B5"
+            android:padding="14dp"
+            android:text="SUBMIT"
+            android:textColor="#FFFFFF" />
+        <!--  Reset Button  -->
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#FFFFFF"
+            android:padding="14dp"
+            android:text="RESET"
+            android:textColor="#3F51B5" />
+        <!--  Divider  -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="#CCCCCC" />
+        <!--  Output Label  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Selected Details:"
+            android:textColor="#3F51B5"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <!--  Output TextView  -->
+        <TextView
+            android:id="@+id/tvOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:lineSpacingExtra="6dp"
+            android:padding="14dp"
+            android:text="(Your selections will appear here)"
+            android:textColor="#555555"
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>
