@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- custom_toast.xml
+     This is the XML layout file for the Custom Toast.
+     Instead of the default plain black Toast, we design our own
+     layout with an icon, a title, and a message — like a mini alert card.
+     Place this file in:  res/layout/custom_toast.xml
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toastRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    android:background="#222222"
+    android:minWidth="260dp">
+
+    <!-- Toast icon — dynamically set to ✅ or ❌ from Java -->
+    <TextView
+        android:id="@+id/tvToastIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✅"
+        android:textSize="26sp"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Right side: title + message stacked vertically -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Toast title (e.g. "Success!" or "Error!") -->
+        <TextView
+            android:id="@+id/tvToastTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Success!"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Toast message (detailed info) -->
+        <TextView
+            android:id="@+id/tvToastMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registration successful."
+            android:textSize="13sp"
+            android:textColor="#CCCCCC"/>
+
+    </LinearLayout>
+</LinearLayout>
