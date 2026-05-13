@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml — E-Commerce Product Page -->
+<!-- Demonstrates: FrameLayout, TableLayout, RelativeLayout -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ╔══════════════════════════════════════════════════════════╗
+             ║  SECTION 1 — FrameLayout                                ║
+             ║  Stacks views on top of each other.                     ║
+             ║  Used here for: Product image + Discount badge overlay  ║
+             ╚══════════════════════════════════════════════════════════╝ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  📦  FrameLayout — Product Banner"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:padding="8dp"/>
+
+        <!--
+            FrameLayout: All children are drawn on top of each other
+            (like a stack of cards). The first child is at the bottom,
+            each subsequent child is drawn above the previous one.
+            layout_gravity controls WHERE on the frame each child sits.
+        -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="#FFFFFF">
+
+            <!-- Layer 1 (bottom): Product image background color block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E8EAF6"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👟"
+                    android:textSize="80sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nike Air Max 270"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"/>
+
+            </LinearLayout>
+
+            <!-- Layer 2 (middle): NEW badge — top-left corner overlay -->
+            <!--
+                layout_gravity="top|start" pins this view to the
+                top-left corner of the FrameLayout, floating above Layer 1
+            -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" NEW "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#4CAF50"
+                android:padding="6dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="12dp"/>
+
+            <!-- Layer 3 (top): Discount badge — top-right corner overlay -->
+            <!--
+                layout_gravity="top|end" pins this to the top-right.
+                This is the key FrameLayout feature: overlapping views
+                without the need for RelativeLayout constraints.
+            -->
+            <TextView
+                android:id="@+id/tvDiscount"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="30%\nOFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#F44336"
+                android:gravity="center"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp"/>
+
+            <!-- Layer 4 (top): Wishlist heart icon — bottom-right corner -->
+            <TextView
+                android:id="@+id/tvWishlist"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="🤍"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="12dp"/>
+
+            <!-- Layer 5 (top): "Best Seller" ribbon — bottom-left -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ⭐ Best Seller "
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#FF9800"
+                android:padding="6dp"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="12dp"/>
+
+        </FrameLayout>
+
+        <!-- ╔══════════════════════════════════════════════════════════╗
+             ║  SECTION 2 — TableLayout                                ║
+             ║  Organizes data in rows and columns.                    ║
+             ║  Used here for: Price breakdown / Order summary table   ║
+             ╚══════════════════════════════════════════════════════════╝ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  📋  TableLayout — Price Breakdown"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"/>
+
+        <!--
+            TableLayout: Divides the screen into rows (TableRow).
+            Each TableRow holds cells side by side like a spreadsheet.
+            stretchColumns="1" makes column index 1 (second col) fill
+            available width — useful for label + value layouts.
+        -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1"
+            android:background="#FFFFFF"
+            android:padding="16dp">
+
+            <!-- Header Row -->
+            <TableRow android:background="#E8EAF6"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:textSize="14sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Details"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:textSize="14sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:textSize="14sp"
+                    android:padding="10dp"/>
+
+            </TableRow>
+
+            <!-- Row 1: Product -->
+            <TableRow android:padding="2dp">
+                <TextView
+                    android:text="Product"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="Nike Air Max 270"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="₹8,999"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+            </TableRow>
+
+            <!-- Row 2: Discount -->
+            <TableRow android:padding="2dp">
+                <TextView
+                    android:text="Discount"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="30% OFF Applied"
+                    android:textSize="13sp"
+                    android:textColor="#4CAF50"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="- ₹2,700"
+                    android:textSize="13sp"
+                    android:textColor="#4CAF50"
+                    android:padding="10dp"/>
+            </TableRow>
+
+            <!-- Row 3: Delivery -->
+            <TableRow android:padding="2dp">
+                <TextView
+                    android:text="Delivery"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="Express (2 days)"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="₹99"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+            </TableRow>
+
+            <!-- Row 4: GST -->
+            <TableRow android:padding="2dp">
+                <TextView
+                    android:text="GST (18%)"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="Included"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="₹1,080"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:padding="10dp"/>
+            </TableRow>
+
+            <!-- Divider Row using a coloured view spanning all columns -->
+            <TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCCCCC"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!-- Total Row -->
+            <TableRow android:background="#EDE7F6"
+                android:padding="4dp">
+                <TextView
+                    android:text="TOTAL"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:padding="10dp"/>
+                <TextView
+                    android:text="Payable Amount"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:padding="10dp"/>
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:text="₹7,478"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#F44336"
+                    android:padding="10dp"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- ╔══════════════════════════════════════════════════════════╗
+             ║  SECTION 3 — RelativeLayout                             ║
+             ║  Positions views RELATIVE to parent or sibling views.   ║
+             ║  Used here for: Product action card with Add to Cart    ║
+             ╚══════════════════════════════════════════════════════════╝ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  🛒  RelativeLayout — Product Actions"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"/>
+
+        <!--
+            RelativeLayout: Each child is positioned relative to:
+              • the parent  : layout_alignParentTop / Start / End / Bottom
+              • a sibling   : layout_below, layout_toEndOf, layout_toStartOf
+              • center      : layout_centerInParent, layout_centerVertical
+            No nesting needed — very efficient for complex placements.
+        -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginTop="0dp">
+
+            <!-- Product title — anchored to top-start of parent -->
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nike Air Max 270"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"/>
+
+            <!-- Brand tag — positioned below product name -->
+            <TextView
+                android:id="@+id/tvBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="by Nike  •  Sports &amp; Lifestyle"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_below="@id/tvProductName"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Star rating — below brand, aligned start -->
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⭐ 4.5  (2,341 reviews)"
+                android:textSize="13sp"
+                android:textColor="#FF9800"
+                android:layout_below="@id/tvBrand"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Final price — below rating, aligned start -->
+            <TextView
+                android:id="@+id/tvFinalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹6,299"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#F44336"
+                android:layout_below="@id/tvRating"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"/>
+
+            <!-- Original price — to the END of final price (strikethrough) -->
+            <TextView
+                android:id="@+id/tvOriginalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹8,999"
+                android:textSize="14sp"
+                android:layout_below="@id/tvRating"
+                android:layout_toEndOf="@id/tvFinalPrice"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"/>
+
+            <!-- Discount chip — to the end of original price -->
+            <TextView
+                android:id="@+id/tvDiscountChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 30% off "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:background="#E8F5E9"
+                android:padding="4dp"
+                android:layout_below="@id/tvRating"
+                android:layout_toEndOf="@id/tvOriginalPrice"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"/>
+
+            <!-- Size selector label — below price row -->
+            <TextView
+                android:id="@+id/tvSizeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_below="@id/tvFinalPrice"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="14dp"/>
+
+            <!-- Size chips row (horizontal LinearLayout inside RelativeLayout) -->
+            <LinearLayout
+                android:id="@+id/llSizes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/tvSizeLabel"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="8dp">
+
+                <TextView android:layout_width="36dp" android:layout_height="36dp"
+                    android:text="6" android:textSize="13sp" android:gravity="center"
+                    android:background="#E8EAF6" android:textColor="#3F51B5"
+                    android:layout_marginEnd="8dp"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp"
+                    android:text="7" android:textSize="13sp" android:gravity="center"
+                    android:background="#3F51B5" android:textColor="#FFFFFF"
+                    android:layout_marginEnd="8dp"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp"
+                    android:text="8" android:textSize="13sp" android:gravity="center"
+                    android:background="#E8EAF6" android:textColor="#3F51B5"
+                    android:layout_marginEnd="8dp"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp"
+                    android:text="9" android:textSize="13sp" android:gravity="center"
+                    android:background="#E8EAF6" android:textColor="#3F51B5"
+                    android:layout_marginEnd="8dp"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp"
+                    android:text="10" android:textSize="12sp" android:gravity="center"
+                    android:background="#E8EAF6" android:textColor="#3F51B5"/>
+
+            </LinearLayout>
+
+            <!-- Quantity label -->
+            <TextView
+                android:id="@+id/tvQtyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qty:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_below="@id/llSizes"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="14dp"/>
+
+            <!-- Quantity controls: minus, count, plus — to end of Qty label -->
+            <LinearLayout
+                android:id="@+id/llQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_below="@id/llSizes"
+                android:layout_toEndOf="@id/tvQtyLabel"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btnMinus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="-"
+                    android:textSize="18sp"
+                    android:textColor="#3F51B5"
+                    android:backgroundTint="#E8EAF6"
+                    android:padding="0dp"/>
+
+                <TextView
+                    android:id="@+id/tvQtyCount"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnPlus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#3F51B5"
+                    android:padding="0dp"/>
+
+            </LinearLayout>
+
+            <!-- ADD TO CART button — below qty row, full width aligned start -->
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="🛒  ADD TO CART"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#3F51B5"
+                android:padding="12dp"
+                android:layout_below="@id/llQty"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/btnBuyNow"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- BUY NOW button — aligned to parent end, same row as ADD TO CART -->
+            <Button
+                android:id="@+id/btnBuyNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ BUY NOW"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#F44336"
+                android:padding="12dp"
+                android:layout_below="@id/llQty"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Delivery info — below buttons, aligned start -->
+            <TextView
+                android:id="@+id/tvDelivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚚  Free delivery by Tomorrow, 6 PM"
+                android:textSize="13sp"
+                android:textColor="#4CAF50"
+                android:layout_below="@id/btnAddToCart"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="12dp"/>
+
+            <!-- Return policy — below delivery, aligned start -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔄  7-day easy returns"
+                android:textSize="13sp"
+                android:textColor="#888888"
+                android:layout_below="@id/tvDelivery"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="4dp"/>
+
+        </RelativeLayout>
+
+        <!-- bottom spacing -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
