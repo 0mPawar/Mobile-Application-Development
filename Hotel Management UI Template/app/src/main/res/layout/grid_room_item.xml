@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- grid_room_item.xml
+     Layout for a single room card in the GridView.
+     Each card shows: ImageView (room icon) + room number, type, price, status.
+     Place in: res/layout/grid_room_item.xml
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="12dp"
+    android:gravity="center_horizontal">
+
+    <!-- ImageView: Room category icon -->
+    <!--
+        ImageView key attributes:
+        - src         : the drawable resource to display
+        - scaleType   : how the image is scaled to fit the view bounds
+        - adjustViewBounds : adjusts view bounds to match image aspect ratio
+        Here we use a system drawable as placeholder for the room image.
+    -->
+    <ImageView
+        android:id="@+id/ivRoomIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:scaleType="centerInside"
+        android:background="#E8EAF6"
+        android:padding="10dp"
+        android:contentDescription="Room Image"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Room Number -->
+    <TextView
+        android:id="@+id/tvRoomNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room 101"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:layout_marginBottom="2dp"/>
+
+    <!-- Room Type -->
+    <TextView
+        android:id="@+id/tvRoomType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deluxe"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Price per night -->
+    <TextView
+        android:id="@+id/tvRoomPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="₹2,500/night"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:layout_marginBottom="6dp"/>
+
+    <!-- Status badge: Available / Occupied / Maintenance -->
+    <TextView
+        android:id="@+id/tvRoomStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#4CAF50"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"/>
+
+</LinearLayout>
