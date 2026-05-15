@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_splash.xml — Splash Screen Layout -->
+<!--
+    RelativeLayout is ideal for splash screens because:
+    - Logo can be centered in the parent
+    - Tagline can be positioned below the logo
+    - Version text can be pinned to the bottom
+    - Loading bar can be anchored to bottom
+    All without nesting multiple layouts.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E">
+
+    <!-- ══════════════════════════════════════════════════════
+         CENTER BLOCK — Logo + App Name + Tagline
+         layout_centerInParent places this group dead center
+    ══════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/llCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <!-- App Logo — ImageView -->
+        <!--
+            ImageView attributes used here:
+            src           — the drawable to display (system icon as placeholder)
+            scaleType     — "centerInside" scales image to fit while keeping ratio
+            background    — circular tinted background behind the icon
+            padding       — space between icon and its background circle
+        -->
+
+        <!-- App Name -->
+
+        <!-- Tagline -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="28dp"
+            android:background="#3F51B5"
+            android:contentDescription="App Logo"
+            android:padding="24dp"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_dialog_alert" />
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:letterSpacing="0.1"
+            android:text="AIOS"
+            android:textColor="#FFFFFF"
+            android:textSize="42sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn. Track. Achieve."
+            android:textSize="16sp"
+            android:textColor="#9FA8DA"
+            android:letterSpacing="0.05"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- Animated loading dots -->
+        <TextView
+            android:id="@+id/tvLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:textSize="13sp"
+            android:textColor="#7986CB"/>
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════
+         PROGRESS BAR — anchored to bottom center
+         Indeterminate horizontal bar for loading feel
+    ══════════════════════════════════════════════════════ -->
+    <ProgressBar
+        android:id="@+id/progressBarSplash"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="4dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="#3F51B5"
+        android:layout_above="@id/llBottomBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- ══════════════════════════════════════════════════════
+         BOTTOM BAR — version + company name
+         layout_alignParentBottom pins to the screen bottom
+    ══════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/llBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version 1.0.0"
+            android:textSize="12sp"
+            android:textColor="#5C6BC0"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="© 2025 AIOS Technologies"
+            android:textSize="11sp"
+            android:textColor="#3949AB"/>
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════
+         TOP BADGE — small label, pinned top-end
+    ══════════════════════════════════════════════════════ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" PRO "
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#F5A623"
+        android:padding="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"/>
+
+</RelativeLayout>
