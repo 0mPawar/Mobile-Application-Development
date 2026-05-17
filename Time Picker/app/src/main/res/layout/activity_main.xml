@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml — Time Picker Application -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- ══════════════════════════════════════════════════
+             HEADER
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⏰  Time Picker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:gravity="center"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select time using the controls below"
+            android:textSize="13sp"
+            android:textColor="#888888"
+            android:gravity="center"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 1 — Inline TimePicker (always visible)
+             TimePicker widget embedded directly in layout.
+             timePickerMode="spinner" shows the scroll-wheel
+             style (hours / minutes columns).
+             setIs24HourView(false) = 12-hour AM/PM mode.
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.  Inline Time Picker (12-Hour Mode)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <!--
+                TimePicker attributes:
+                timePickerMode="spinner"  — scroll-wheel style (hour/min columns)
+                timePickerMode="clock"    — analog clock dial style
+                The spinner style matches the "Type in time" dialog in your screenshot.
+            -->
+            <TimePicker
+                android:id="@+id/timePickerInline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:timePickerMode="spinner"/>
+
+        </LinearLayout>
+
+        <!-- Confirm button for inline picker -->
+        <Button
+            android:id="@+id/btnConfirmInline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✔  CONFIRM TIME"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
+            android:padding="13dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Output for inline picker -->
+        <TextView
+            android:id="@+id/tvInlineResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No time confirmed yet."
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:padding="14dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 2 — TimePickerDialog (Pop-up)
+             Matches the "Set time" dialog in the screenshot:
+             Title "Set time", "Type in time" subtitle,
+             hour : minute fields, AM/PM dropdown,
+             clock icon, CANCEL and OK buttons.
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2.  TimePickerDialog (Pop-up — 12-Hour)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap the button below to open a TimePickerDialog.\nThis matches the 'Set time' dialog from the screenshot."
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="14dp"/>
+
+            <!-- Selected time display field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F5F5F5"
+                android:padding="14dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏰  "
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tvDialogSelectedTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No time selected"
+                    android:textSize="15sp"
+                    android:textColor="#888888"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnOpenDialog12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⏰  SET TIME (12-Hour / AM-PM)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#009688"
+                android:padding="13dp"/>
+
+        </LinearLayout>
+
+        <!-- Output for 12-hour dialog -->
+        <TextView
+            android:id="@+id/tvDialogResult12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No time selected yet."
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:padding="14dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 3 — 24-Hour TimePickerDialog
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3.  TimePickerDialog (24-Hour Mode)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time shown in 24-hour format (00:00 – 23:59).\nNo AM/PM selector — used in military/international contexts."
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="14dp"/>
+
+            <!-- Selected 24hr time display -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F5F5F5"
+                android:padding="14dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🕐  "
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tvDialog24Selected"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No time selected"
+                    android:textSize="15sp"
+                    android:textColor="#888888"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnOpenDialog24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🕐  SET TIME (24-Hour)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#5C6BC0"
+                android:padding="13dp"/>
+
+        </LinearLayout>
+
+        <!-- Output for 24-hour dialog -->
+        <TextView
+            android:id="@+id/tvDialogResult24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No time selected yet."
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:padding="14dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 4 — Alarm / Reminder Scheduler
+             Pick a time, set a label, confirm the "alarm".
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4.  Alarm / Reminder Scheduler"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Alarm label input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alarm Label"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etAlarmLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="e.g. Morning Meeting"
+                android:inputType="text"
+                android:padding="12dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_marginBottom="14dp"/>
+
+            <!-- Alarm time display + pick button -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alarm Time"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/tvAlarmTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Not set"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:background="#EEF2FF"
+                    android:padding="14dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"/>
+
+                <Button
+                    android:id="@+id/btnPickAlarmTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏰\nPICK"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#FF6F00"
+                    android:padding="12dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSetAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔔  SET ALARM"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#E53935"
+                android:padding="13dp"/>
+
+        </LinearLayout>
+
+        <!-- Alarm confirmation output -->
+        <TextView
+            android:id="@+id/tvAlarmResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No alarm set yet."
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:padding="14dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+</ScrollView>
