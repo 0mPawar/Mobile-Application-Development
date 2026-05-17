@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml — Countdown Timer App -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- ══════════════════════════════════════════════════════
+             HEADER
+        ══════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏱ Countdown Timer"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"/>
+
+        <!-- ══════════════════════════════════════════════════════
+             SECTION 1 — SET TIMER (HH:MM:SS input row)
+             Three EditTexts side-by-side using horizontal LinearLayout
+        ══════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Timer"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#9FA8DA"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <!-- Hours input -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/etHours"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:hint="00"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5C6BC0"
+                    android:background="#16213E"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HH"
+                    android:textSize="11sp"
+                    android:textColor="#7986CB"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- Colon separator -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="#3F51B5"
+                android:paddingBottom="16dp"
+                android:layout_marginHorizontal="6dp"/>
+
+            <!-- Minutes input -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/etMinutes"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:hint="00"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5C6BC0"
+                    android:background="#16213E"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MM"
+                    android:textSize="11sp"
+                    android:textColor="#7986CB"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- Colon separator -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="#3F51B5"
+                android:paddingBottom="16dp"
+                android:layout_marginHorizontal="6dp"/>
+
+            <!-- Seconds input -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/etSeconds"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:hint="00"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5C6BC0"
+                    android:background="#16213E"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SS"
+                    android:textSize="11sp"
+                    android:textColor="#7986CB"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════
+             SECTION 2 — QUICK PRESET BUTTONS
+             One-tap shortcuts for common durations
+        ══════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quick Presets"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#9FA8DA"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="28dp">
+
+            <Button
+                android:id="@+id/btn30s"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="30s"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#283593"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btn1m"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1 min"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#283593"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btn5m"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5 min"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#283593"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btn10m"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10 min"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#283593"/>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════
+             SECTION 3 — MAIN TIMER DISPLAY
+             Large HH:MM:SS display updated by CountDownTimer.onTick()
+        ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#0F3460"
+            android:padding="28dp"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <!-- Status label (READY / RUNNING / PAUSED / FINISHED) -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="READY"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#7986CB"
+                android:letterSpacing="0.2"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Main countdown display — updated in onTick() -->
+            <TextView
+                android:id="@+id/tvCountdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Progress bar showing time remaining visually -->
+            <ProgressBar
+                android:id="@+id/progressTimer"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:max="100"
+                android:progress="100"
+                android:progressTint="#3F51B5"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Milliseconds / tick indicator -->
+            <TextView
+                android:id="@+id/tvMillis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=".000"
+                android:textSize="20sp"
+                android:textColor="#5C6BC0"
+                android:fontFamily="monospace"/>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════
+             SECTION 4 — CONTROL BUTTONS
+             START / PAUSE / RESUME / RESET
+        ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <!-- START / PAUSE / RESUME — state changes label in Java -->
+            <Button
+                android:id="@+id/btnStartPause"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="▶  START"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#3F51B5"
+                android:padding="14dp"
+                android:layout_marginEnd="10dp"/>
+
+            <!-- RESET — cancels timer and resets display -->
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="↺  RESET"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#C62828"
+                android:padding="14dp"/>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════
+             SECTION 5 — LOG / LAP LIST
+             Shows each lap time when LAP is pressed
+        ══════════════════════════════════════════════════════ -->
+        <Button
+            android:id="@+id/btnLap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏁  LAP"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#283593"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Lap entries container — populated dynamically in Java -->
+        <LinearLayout
+            android:id="@+id/llLapContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"/>
+
+        <!-- Finish message — shown when timer hits zero (onFinish) -->
+        <TextView
+            android:id="@+id/tvFinishMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎉  Time's Up!"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#F5A623"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="#1A1A2E"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
