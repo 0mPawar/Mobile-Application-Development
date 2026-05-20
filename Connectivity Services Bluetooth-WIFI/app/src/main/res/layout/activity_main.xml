@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1A237E"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📡"
+                android:textSize="40sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connectivity Services"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bluetooth  •  Wi-Fi"
+                android:textSize="12sp"
+                android:textColor="#9FA8DA"/>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 1 — BLUETOOTH
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔵  Bluetooth Manager"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1565C0"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- BT Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Status row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bluetooth Status"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"/>
+
+                <TextView
+                    android:id="@+id/tvBTStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Checking..."
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#888888"
+                    android:background="#F5F5F5"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+            </LinearLayout>
+
+            <!-- BT Device Name row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Device Name"
+                    android:textSize="13sp"
+                    android:textColor="#666666"/>
+
+                <TextView
+                    android:id="@+id/tvBTDeviceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0"/>
+
+            </LinearLayout>
+
+            <!-- BT Address row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="MAC Address"
+                    android:textSize="13sp"
+                    android:textColor="#666666"/>
+
+                <TextView
+                    android:id="@+id/tvBTAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="12sp"
+                    android:textColor="#555555"
+                    android:fontFamily="monospace"/>
+
+            </LinearLayout>
+
+            <!-- BT Control Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <Button
+                    android:id="@+id/btnBTEnable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Enable BT"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#1565C0"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnBTDisable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Disable BT"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#C62828"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnBTRefresh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Refresh"
+                    android:textSize="12sp"
+                    android:textColor="#1565C0"
+                    android:backgroundTint="#E3F2FD"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Paired Devices + Scan -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Paired Devices"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"/>
+
+                <Button
+                    android:id="@+id/btnGetPaired"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Get Paired"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#1565C0"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"/>
+
+            </LinearLayout>
+
+            <!-- Paired devices list output -->
+            <TextView
+                android:id="@+id/tvPairedDevices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap 'Get Paired' to list paired devices."
+                android:textSize="13sp"
+                android:textColor="#555555"
+                android:background="#F9F9F9"
+                android:padding="12dp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Scan/Discover button -->
+            <Button
+                android:id="@+id/btnBTScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔍  SCAN FOR NEARBY DEVICES"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#283593"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Make Discoverable button -->
+            <Button
+                android:id="@+id/btnBTDiscoverable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📡  MAKE DISCOVERABLE (120 sec)"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#1976D2"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+        <!-- Nearby scanned devices list -->
+        <TextView
+            android:id="@+id/tvScannedDevices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scanned devices will appear here."
+            android:textSize="13sp"
+            android:textColor="#555555"
+            android:background="#FFFFFF"
+            android:padding="14dp"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 2 — WI-FI
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📶  Wi-Fi Manager"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#00695C"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- WiFi Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- WiFi Status row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Wi-Fi Status"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"/>
+
+                <TextView
+                    android:id="@+id/tvWifiStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Checking..."
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#888888"
+                    android:background="#F5F5F5"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+            </LinearLayout>
+
+            <!-- SSID row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Network (SSID)"
+                    android:textSize="13sp"
+                    android:textColor="#666666"/>
+
+                <TextView
+                    android:id="@+id/tvWifiSSID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#00695C"/>
+
+            </LinearLayout>
+
+            <!-- IP Address row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="IP Address"
+                    android:textSize="13sp"
+                    android:textColor="#666666"/>
+
+                <TextView
+                    android:id="@+id/tvWifiIP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textColor="#555555"
+                    android:fontFamily="monospace"/>
+
+            </LinearLayout>
+
+            <!-- Link Speed row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Link Speed"
+                    android:textSize="13sp"
+                    android:textColor="#666666"/>
+
+                <TextView
+                    android:id="@+id/tvWifiSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textColor="#555555"/>
+
+            </LinearLayout>
+
+            <!-- WiFi control buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnWifiEnable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Enable WiFi"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#00695C"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnWifiDisable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Disable WiFi"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#C62828"
+                    android:layout_marginEnd="6dp"/>
+
+                <Button
+                    android:id="@+id/btnWifiRefresh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Refresh"
+                    android:textSize="12sp"
+                    android:textColor="#00695C"
+                    android:backgroundTint="#E0F2F1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- WiFi Open Settings button -->
+        <Button
+            android:id="@+id/btnWifiSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️  OPEN WI-FI SETTINGS"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#00897B"
+            android:padding="13dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 3 — NETWORK INFO (Combined)
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌐  Network Information"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#4527A0"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvNetworkInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap Refresh to load network info."
+                android:textSize="13sp"
+                android:textColor="#555555"
+                android:lineSpacingExtra="5dp"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btnNetworkRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔄  REFRESH ALL STATUS"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#4527A0"
+                android:padding="13dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

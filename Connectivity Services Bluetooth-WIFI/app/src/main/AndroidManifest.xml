@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--  ══════════════════════════════════════════════════════
+             BLUETOOTH PERMISSIONS
+             Pre-API 31 (Android 11 and below):
+               BLUETOOTH       — basic BT operations
+               BLUETOOTH_ADMIN — enable/disable/scan
+             API 31+ (Android 12 and above):
+               BLUETOOTH_CONNECT — connect to paired devices, get name/address
+               BLUETOOTH_SCAN    — discover nearby devices
+             Location permission is needed for BT scanning on all API levels.
+        ══════════════════════════════════════════════════════  -->
+    <!--  Pre-API 31 Bluetooth permissions  -->
+
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+    <!--  API 31+ Bluetooth permissions  -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <!--  Location — required for BT device discovery on all API levels  -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!--  ══════════════════════════════════════════════════════
+             WI-FI PERMISSIONS
+               ACCESS_WIFI_STATE   — read Wi-Fi status, SSID, signal
+               CHANGE_WIFI_STATE   — enable/disable Wi-Fi (pre-API 29)
+               ACCESS_NETWORK_STATE— read general network connectivity info
+        ══════════════════════════════════════════════════════  -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--  Internet permission — needed if app fetches any network data  -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--  Declare that this app uses Bluetooth hardware (optional but good practice)  -->
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ConnectivityServicesBluetoothWIFI">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
