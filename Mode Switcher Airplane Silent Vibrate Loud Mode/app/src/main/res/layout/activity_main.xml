@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="24dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tvModeIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔊"
+                android:textSize="56sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mode Switcher"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvCurrentMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Mode: Checking..."
+                android:textSize="14sp"
+                android:textColor="#9FA8DA"/>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 1 — CURRENT STATUS CARD
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📊  Current System Status"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#9FA8DA"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#0F3460"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Airplane Mode status -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="✈️  Airplane Mode"
+                    android:textSize="14sp"
+                    android:textColor="#C5CAE9"/>
+
+                <TextView
+                    android:id="@+id/tvAirplaneStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#EF9A9A"
+                    android:background="#1A1A2E"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"/>
+
+            </LinearLayout>
+
+            <!-- Ringer Mode status -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔔  Ringer Mode"
+                    android:textSize="14sp"
+                    android:textColor="#C5CAE9"/>
+
+                <TextView
+                    android:id="@+id/tvRingerMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#A5D6A7"
+                    android:background="#1A1A2E"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"/>
+
+            </LinearLayout>
+
+            <!-- Volume levels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔉  Ring Volume"
+                    android:textSize="14sp"
+                    android:textColor="#C5CAE9"/>
+
+                <TextView
+                    android:id="@+id/tvVolume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#9FA8DA"
+                    android:background="#1A1A2E"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 2 — MODE SWITCH BUTTONS
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎛️  Switch Mode"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#9FA8DA"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Loud Mode button -->
+        <Button
+            android:id="@+id/btnLoudMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔊  LOUD MODE  (Normal)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1565C0"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Silent Mode button -->
+        <Button
+            android:id="@+id/btnSilentMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔇  SILENT MODE"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4A148C"
+            android:padding="16dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Vibrate Mode button -->
+        <Button
+            android:id="@+id/btnVibrateMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📳  VIBRATE MODE"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#00695C"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 3 — AIRPLANE MODE SECTION
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✈️  Airplane Mode"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#9FA8DA"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#0F3460"
+            android:padding="14dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android does not allow apps to toggle Airplane Mode programmatically (security restriction since API 17). The BroadcastReceiver detects the change automatically when you toggle it manually from Settings or Quick Settings."
+                android:textSize="12sp"
+                android:textColor="#9FA8DA"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btnAirplaneSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚙️  OPEN AIRPLANE MODE SETTINGS"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#1A237E"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════
+             SECTION 4 — BROADCAST RECEIVER LOG
+             Shows real-time events received by the receiver
+        ══════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📡  Broadcast Receiver Log"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#9FA8DA"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvReceiverLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiting for broadcast events...\n(Toggle Airplane Mode or change Ringer mode to see events here)"
+            android:textSize="11sp"
+            android:textColor="#7986CB"
+            android:fontFamily="monospace"
+            android:background="#0F3460"
+            android:padding="14dp"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Clear log button -->
+        <Button
+            android:id="@+id/btnClearLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗑  CLEAR LOG"
+            android:textSize="13sp"
+            android:textColor="#9FA8DA"
+            android:backgroundTint="#16213E"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Refresh status button -->
+        <Button
+            android:id="@+id/btnRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔄  REFRESH STATUS"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#283593"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
+</ScrollView>

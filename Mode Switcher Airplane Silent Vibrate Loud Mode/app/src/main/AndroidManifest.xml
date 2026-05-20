@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--
+            PERMISSIONS for this practical:
+
+            MODIFY_AUDIO_SETTINGS
+              Required to call AudioManager.setRingerMode().
+              Without this, switching Silent/Vibrate/Loud mode will fail.
+
+            ACCESS_NOTIFICATION_POLICY
+              Required on API 23+ to modify Do Not Disturb settings.
+              Needed when trying to set RINGER_MODE_SILENT on Android 6+.
+
+            READ_PHONE_STATE
+              Required to read device state on some API levels.
+
+            RECEIVE_BOOT_COMPLETED
+              Allows the BroadcastReceiver to start at device boot.
+              Included here as an educational reference (Manifest registration).
+         -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ModeSwitcherAirplaneSilentVibrateLoudMode">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+                    STATIC BroadcastReceiver Registration in AndroidManifest.xml
+                    ════════════════════════════════════════════════════════════
+                    This demonstrates the STATIC registration approach from the
+                    practical's theoretical background.
+
+                    The receiver declared here (ModeReceiver) will receive
+                    ACTION_BOOT_COMPLETED even when the app is NOT running.
+
+                    Note: From API 26 (Android 8.0), most implicit system broadcasts
+                    can NO longer be registered statically in the Manifest.
+                    Exceptions include:
+                      ACTION_BOOT_COMPLETED   — still works statically
+                      ACTION_LOCKED_BOOT_COMPLETED — still works statically
+                    Broadcasts like ACTION_AIRPLANE_MODE_CHANGED MUST now be
+                    registered dynamically in code (which we do in MainActivity).
+
+                    Intent-filter inside the receiver tag:
+                      android:exported="true" — allows system to send broadcasts to it
+                 -->
+        <receiver android:name=".ModeReceiver" android:exported="true">
+            <intent-filter>
+                <!--
+                                    ACTION_BOOT_COMPLETED:
+                                    Fired after the Android system finishes booting.
+                                    Used to re-start services or schedule tasks at boot.
+                                    Requires RECEIVE_BOOT_COMPLETED permission (declared above).
+                                 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <!--
+                                    Custom broadcast action from our own app.
+                                    Any component can send a broadcast with this action string.
+                                 -->
+                <action android:name="com.example.practical21.ACTION_CUSTOM_MODE"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
